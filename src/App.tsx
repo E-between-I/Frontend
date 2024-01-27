@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./style/GlobalStyle";
 import { theme } from "./style/Theme";
 import Header from "./components/Main/Header";
+import { WritePage } from "./pages/WritePage";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ function App() {
             <Header />
             <Routes>
               <Route element={<MainPage />} path="/" />
+              <Route element={<WritePage />} path="/write/:type" />
             </Routes>
           </BrowserRouter>
         </RecoilRoot>

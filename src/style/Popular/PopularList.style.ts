@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledPopularList = styled.div`
@@ -19,10 +20,11 @@ export const StyledPopularListTitle = styled.span`
   font-weight: 600;
 `;
 
-export const StyledPopularListMore = styled.span`
+export const StyledPopularListMore = styled(Link)`
   font-size: 20px;
   color: #1238ff;
   cursor: pointer;
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
   }

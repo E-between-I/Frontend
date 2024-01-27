@@ -21,10 +21,11 @@ const Texts = () => {
 
   return (
     <div>
-      {HEADER_LIST.map((value) => (
+      {HEADER_LIST.map((value, idx) => (
         <Text
           onClick={() => onTextClicckHandle(value.route)}
-          isSelected={value.route === location.pathname}
+          $isSelected={value.route === location.pathname}
+          key={idx}
         >
           {value.title}
         </Text>
@@ -34,7 +35,7 @@ const Texts = () => {
       ) : (
         <Text
           onClick={onLoginClickHandle}
-          isSelected={"/login" === location.pathname}
+          $isSelected={"/login" === location.pathname}
         >
           로그인
         </Text>
@@ -43,14 +44,14 @@ const Texts = () => {
   );
 };
 
-const Text = styled.p<{ isSelected?: boolean }>`
+const Text = styled.p<{ $isSelected?: boolean }>`
   cursor: pointer;
   font-size: 18px;
   font-weight: 400;
   line-height: 24px;
   color: ${(props) =>
-    props.isSelected ? props.theme.colors.main : props.theme.colors.gray600};
-  text-decoration-line: ${(props) => props.isSelected && "underline"};
+    props.$isSelected ? props.theme.colors.main : props.theme.colors.gray600};
+  text-decoration-line: ${(props) => props.$isSelected && "underline"};
   &:hover {
     color: #0066ff;
     text-decoration: underline;
