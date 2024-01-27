@@ -6,6 +6,9 @@ import AnotherLoginPage from "../pages/AnotherLoginPage";
 import CreateNickNamePage from "../pages/CreateNickNamePage";
 import { LecturePage } from "../pages/LecturePage";
 import StockPage from "../pages/StockPage";
+import ImmovablesPage from "../pages/Immovables";
+import SavingsPage from "../pages/SavingsPage";
+import EconomyPage from "../pages/EconomyPage";
 
 const MainRouter = () => {
   return (
@@ -17,6 +20,9 @@ const MainRouter = () => {
       <Route element={<CreateNickNamePage />} path="/create_nickname" />
       <Route element={<LecturePage />} path="/lecture" />
       <Route element={<StockPage />} path="/stock" />
+      <Route element={<ImmovablesPage />} path="/immovables" />
+      <Route element={<SavingsPage />} path="/savings" />
+      <Route element={<EconomyPage />} path="/economy" />
     </Routes>
   );
 };
