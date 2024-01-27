@@ -51,6 +51,11 @@ const Text = styled.p<{ isSelected?: boolean }>`
   color: ${(props) =>
     props.isSelected ? props.theme.colors.main : props.theme.colors.gray600};
   text-decoration-line: ${(props) => props.isSelected && "underline"};
+  &:hover {
+    color: #0066ff;
+    text-decoration: underline;
+    font-weight: 600;
+  }
 `;
 
 export default Texts;
