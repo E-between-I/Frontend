@@ -2,6 +2,7 @@ import { HEADER_LIST } from "../../../constants/main";
 import { useLocation, useNavigate } from "react-router-dom";
 import { removeToken } from "../../../utils/functions/TokenManager";
 import styled from "styled-components";
+import Profile from "./Profile";
 
 const Texts = () => {
   const navigate = useNavigate();
@@ -31,7 +32,10 @@ const Texts = () => {
         </Text>
       ))}
       {localStorage.getItem("accessToken") ? (
-        <Text onClick={onLogoutClickHandle}>로그아웃</Text>
+        <>
+          <Text onClick={onLogoutClickHandle}>로그아웃</Text>
+          <Profile />
+        </>
       ) : (
         <Text
           onClick={onLoginClickHandle}
