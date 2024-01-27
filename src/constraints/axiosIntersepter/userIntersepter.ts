@@ -1,7 +1,10 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
-const instance: AxiosInstance = axios.create({
-  baseURL: 'https://localhost3000',
+const BASE_URL = process.env.REACT_APP_PUBLIC_BASE_URL;
+
+export const instance = axios.create({
+  baseURL: BASE_URL,
+  timeout: 10000,
 });
 
 instance.interceptors.request.use(

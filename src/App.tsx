@@ -2,6 +2,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import MainPage from "./pages/MainPage";
+import Stock from "./components/Stock";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./style/GlobalStyle";
@@ -18,7 +19,8 @@ function App() {
           <Toaster />
           <BrowserRouter>
             <Routes>
-              <Route element={<MainPage />} path="/" />
+              <Route path="/" element={<MainPage />} />
+              <Route path="/com" element={<Stock />} />
             </Routes>
           </BrowserRouter>
         </RecoilRoot>
