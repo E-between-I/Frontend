@@ -1,11 +1,17 @@
 import styled from "styled-components";
 import { Logo } from "../../../assets";
 import Texts from "./Text";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const onLogoClickHandle = () => {
+    navigate("/");
+  };
   return (
     <Container>
-      <img src={Logo} alt="로고입니다." />
+      <img src={Logo} alt="로고입니다." onClick={onLogoClickHandle} />
       <Texts />
     </Container>
   );
