@@ -1,6 +1,6 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from "axios";
 
-const BASE_URL = process.env.REACT_APP_PUBLIC_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const instance = axios.create({
   baseURL: BASE_URL,
@@ -17,7 +17,7 @@ instance.interceptors.request.use(
 );
 
 instance.interceptors.response.use(
-  (response: AxiosResponse) => {    
+  (response: AxiosResponse) => {
     return response;
   },
   (error: AxiosError) => {
@@ -25,7 +25,8 @@ instance.interceptors.response.use(
   }
 );
 
-instance.get('')
+instance
+  .get("")
   .then((response) => {
     console.log(response.data);
   })
