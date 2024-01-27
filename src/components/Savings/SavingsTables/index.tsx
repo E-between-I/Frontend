@@ -14,13 +14,13 @@ interface StockItem {
   like: number;
 }
 
-export const StockTable: React.FC = () => {
+export const SavingsTable: React.FC = () => {
   const [data, setData] = useState<StockItem[]>([]);
 
   useEffect(() => {
     const getStockQuestion = async () => {
       try {
-        const response = await instance.get<StockItem[]>("/post/stock");
+        const response = await instance.get<StockItem[]>("/post/deposit");
         setData(response.data);
         console.log(response.data);
       } catch (error) {

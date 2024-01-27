@@ -1,9 +1,9 @@
-import { StockTable } from "./StockTable";
+import { EconomyTable } from "./EconomyTable";
 import Banner from "../../assets/banner.svg";
 import Pagination from "../common/Pagination";
 import * as S from "./style";
 
-const Stock = () => {
+const Economy = () => {
   const totalPosts = 100;
   const limit = 10;
   const initialPage = 1;
@@ -16,8 +16,8 @@ const Stock = () => {
     <S.StockContainer>
       <S.StockWrapper>
         <img src={Banner} alt="error" />
-        <S.Title>주식</S.Title>
-        <StockTable />
+        <S.Title>경제</S.Title>
+        <EconomyTable />
         <Pagination
           page={initialPage}
           totalPosts={totalPosts}
@@ -29,4 +29,4 @@ const Stock = () => {
   );
 };
 
-export default Stock;
+export default Economy;
