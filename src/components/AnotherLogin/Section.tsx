@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useForm } from "../../hooks/useForm";
 import { SIGN_FORM } from "../../constants/Login";
+import Input from "../common/Input";
 
 const Section = () => {
   const { form: signForm, handleChange: signFormChange } = useForm({
@@ -40,21 +41,6 @@ const Inputs = styled.div`
   gap: 8px;
 `;
 
-const Input = styled.input`
-  outline: none;
-  border: 1px solid ${({ theme }) => theme.colors.gray800};
-  width: 440px;
-  padding: 10px 12px;
-  font-size: 20px;
-  color: ${({ theme }) => theme.colors.BLACK};
-  font-weight: 300;
-  border-radius: 5px;
-
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.gray100};
-  }
-`;
-
 const Button = styled.button`
   background: ${({ theme }) => theme.colors.main};
   border: none;
@@ -65,6 +51,7 @@ const Button = styled.button`
   font-weight: 600;
   height: 50px;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export default Section;
