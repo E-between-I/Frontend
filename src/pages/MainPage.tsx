@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer/Footer";
 import { PopularSection } from "../components/Main/Popular/PopularSection";
 import Title from "../components/Main/Title";
 
@@ -6,6 +7,7 @@ const MainPage = () => {
     <>
       <Title />
       <PopularSection />
+      <Footer />
     </>
   );
 };
