@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./style/GlobalStyle";
 import { theme } from "./style/Theme";
+import Header from "./components/Main/Header";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ function App() {
           <GlobalStyle />
           <Toaster />
           <BrowserRouter>
+            <Header />
             <Routes>
               <Route element={<MainPage />} path="/" />
             </Routes>
