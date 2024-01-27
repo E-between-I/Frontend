@@ -1,16 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { TABLE_LIST } from "../../constants/Common";
 import { instance } from "../../constraints/axiosIntersepter/userIntersepter";
 import * as S from "./style";
 
-interface Post {
-  title: string;
-  author: string;
-  date: string;
-  likes: number;
-}
-
 export const StockTable = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
 
   const getStockQuestion = async () => {
     const response = await instance.get(`/post/common`);
@@ -31,26 +24,20 @@ export const StockTable = () => {
         <S.ConfirmTitle style={{ width: "8%" }}>작성날짜</S.ConfirmTitle>
         <S.ConfirmTitle style={{ width: "8%" }}>좋아요</S.ConfirmTitle>
       </S.ConfirmListHeader>
-      {posts.map((item, idx) => (
-        <S.ConfirmListItemContaienr key={idx}>
-          <S.ConfirmListItem style={{ width: "90%", paddingLeft: "1%" }}>
-            {item.title && typeof item.title === "string"
-              ? item.title
-              : "Unknown Title"}
-          </S.ConfirmListItem>
-          <S.ConfirmListItem style={{ width: "8%" }}>
-            {item.author && typeof item.author === "string"
-              ? item.author
-              : "Unknown Author"}
-          </S.ConfirmListItem>
-          <S.ConfirmListItem style={{ width: "8%" }}>
-            {item.date && typeof item.date === "string"
-              ? item.date
-              : "Unknown Date"}
-          </S.ConfirmListItem>
-          <S.ConfirmListItem style={{ width: "8%" }}>
-            {item.likes && typeof item.likes === "number" ? item.likes : 0}
-          </S.ConfirmListItem>
+      {TABLE_LIST.map((value) => (
+        <S.ConfirmListItemContaienr>
+          <S.ConfirmTitle style={{ width: "90%", paddingLeft: "1%" }}>
+            {value.title}
+          </S.ConfirmTitle>
+          <S.ConfirmTitle style={{ width: "8%" }}>
+            {value.author}
+          </S.ConfirmTitle>
+          <S.ConfirmTitle style={{ width: "8%" }}>
+            {value.date}
+          </S.ConfirmTitle>
+          <S.ConfirmTitle style={{ width: "8%" }}>
+            {value.likes}
+          </S.ConfirmTitle>
         </S.ConfirmListItemContaienr>
       ))}
     </S.ConfirmListContainer>
