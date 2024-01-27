@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { TABLE_LIST } from "../../constants/Common";
-import { instance } from "../../constraints/axiosIntersepter/userIntersepter";
+import { TABLE_LIST } from "../../../constants/Common";
+import { instance } from "../../../constraints/axiosIntersepter/userIntersepter";
 import * as S from "./style";
 
 export const StockTable = () => {
-
   const getStockQuestion = async () => {
     const response = await instance.get(`/post/common`);
     return response.data;
@@ -32,12 +31,8 @@ export const StockTable = () => {
           <S.ConfirmTitle style={{ width: "8%" }}>
             {value.author}
           </S.ConfirmTitle>
-          <S.ConfirmTitle style={{ width: "8%" }}>
-            {value.date}
-          </S.ConfirmTitle>
-          <S.ConfirmTitle style={{ width: "8%" }}>
-            {value.likes}
-          </S.ConfirmTitle>
+          <S.ConfirmTitle style={{ width: "8%" }}>{value.date}</S.ConfirmTitle>
+          <S.ConfirmTitle style={{ width: "8%" }}>{value.likes}</S.ConfirmTitle>
         </S.ConfirmListItemContaienr>
       ))}
     </S.ConfirmListContainer>
