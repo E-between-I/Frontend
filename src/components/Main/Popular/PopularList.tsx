@@ -19,7 +19,7 @@ export const PopularList = ({ title, path }: PopularListProps) => {
           <StyledPopularListTitle>{title}</StyledPopularListTitle>
           <StyledPopularListMore to={`/${path}`}>더보기</StyledPopularListMore>
         </StyledPopularListTitleSection>
-        <PopularListItems />
+        <PopularListItems path={path} />
       </StyledPopularList>
     </>
   );
