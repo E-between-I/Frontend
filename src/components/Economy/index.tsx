@@ -2,6 +2,8 @@ import { EconomyTable } from "./EconomyTable";
 import Banner from "../../assets/banner.svg";
 import Pagination from "../common/Pagination";
 import * as S from "./style";
+import { Link } from "react-router-dom";
+import QuestionButtonComponent from "../common/Button/question";
 
 const Economy = () => {
   const totalPosts = 100;
@@ -24,6 +26,9 @@ const Economy = () => {
           limit={limit}
           setPage={handlePageChange}
         />
+        <Link to="/write/economy">
+          <QuestionButtonComponent />
+        </Link>
       </S.StockWrapper>
     </S.StockContainer>
   );
