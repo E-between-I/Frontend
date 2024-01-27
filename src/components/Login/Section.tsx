@@ -57,6 +57,7 @@ const GAuthButton = styled.button`
   align-items: center;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 
   > img {
     width: 57px;
@@ -78,6 +79,7 @@ const AnotherButton = styled.button`
   align-items: center;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export default Section;
