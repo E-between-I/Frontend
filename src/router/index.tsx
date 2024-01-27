@@ -4,6 +4,7 @@ import { WritePage } from "../pages/WritePage";
 import LoginPage from "../pages/LoginPage";
 import AnotherLoginPage from "../pages/AnotherLoginPage";
 import CreateNickNamePage from "../pages/CreateNickNamePage";
+import { LecturePage } from "../pages/LecturePage";
 
 const MainRouter = () => {
   return (
@@ -13,6 +14,7 @@ const MainRouter = () => {
       <Route element={<LoginPage />} path="/login" />
       <Route element={<AnotherLoginPage />} path="/another_login" />
       <Route element={<CreateNickNamePage />} path="/create_nickname" />
+      <Route element={<LecturePage />} path="/lecture" />
     </Routes>
   );
 };
