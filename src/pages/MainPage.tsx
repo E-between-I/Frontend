@@ -1,5 +1,11 @@
+import Title from "../components/Main/Title";
+
 const MainPage = () => {
-  return <div>mainpage</div>;
+  return (
+    <>
+      <Title />
+    </>
+  )
 };
 
 export default MainPage;
