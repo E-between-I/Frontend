@@ -19,7 +19,16 @@ export const PopularListItem = ({
   return (
     <>
       <StyledPopularListItem>
-        <StyledPopularListItemText style={{ flex: 1, textAlign: "left" }}>
+        <StyledPopularListItemText
+          style={{
+            flex: 1,
+            textAlign: "left",
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            textOverflow: "ellipsis",
+            wordBreak: "break-all",
+          }}
+        >
           {title}
         </StyledPopularListItemText>
         <StyledPopularListItemText>{writer}</StyledPopularListItemText>
