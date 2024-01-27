@@ -25,6 +25,7 @@ const Texts = () => {
         <Text
           onClick={() => onTextClicckHandle(value.route)}
           isSelected={value.route === location.pathname}
+          key={value.title}
         >
           {value.title}
         </Text>
