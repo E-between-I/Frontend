@@ -1,7 +1,10 @@
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from "axios";
 
-const instance: AxiosInstance = axios.create({
-  baseURL: 'https://localhost3000',
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+export const instance = axios.create({
+  baseURL: BASE_URL,
+  timeout: 10000,
 });
 
 instance.interceptors.request.use(
@@ -14,7 +17,7 @@ instance.interceptors.request.use(
 );
 
 instance.interceptors.response.use(
-  (response: AxiosResponse) => {    
+  (response: AxiosResponse) => {
     return response;
   },
   (error: AxiosError) => {
@@ -22,7 +25,8 @@ instance.interceptors.response.use(
   }
 );
 
-instance.get('')
+instance
+  .get("")
   .then((response) => {
     console.log(response.data);
   })

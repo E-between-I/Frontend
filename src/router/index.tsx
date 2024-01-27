@@ -5,6 +5,7 @@ import LoginPage from "../pages/LoginPage";
 import AnotherLoginPage from "../pages/AnotherLoginPage";
 import CreateNickNamePage from "../pages/CreateNickNamePage";
 import { LecturePage } from "../pages/LecturePage";
+import StockPage from "../pages/StockPage";
 
 const MainRouter = () => {
   return (
@@ -15,6 +16,7 @@ const MainRouter = () => {
       <Route element={<AnotherLoginPage />} path="/another_login" />
       <Route element={<CreateNickNamePage />} path="/create_nickname" />
       <Route element={<LecturePage />} path="/lecture" />
+      <Route element={<StockPage />} path="/stock" />
     </Routes>
   );
 };
