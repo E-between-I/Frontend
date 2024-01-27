@@ -24,10 +24,6 @@ export const ConfirmListItemContaienr = styled.div`
 
   cursor: pointer;
   border-bottom: 1px solid #d2d2d2;
-
-  &:hover {
-    background-color: #888;
-  }
 `;
 
 export const ConfirmListItem = styled.div`

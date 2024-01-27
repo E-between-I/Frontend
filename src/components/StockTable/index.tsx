@@ -1,16 +1,33 @@
-import { useEffect } from "react";
-import { TABLE_LIST } from "../../constants/Common";
+import { useEffect, useState } from "react";
 import { instance } from "../../constraints/axiosIntersepter/userIntersepter";
 import * as S from "./style";
 
-export const StockTable = () => {
-
-  const getStockQuestion = async () => {
-    const response = await instance.get(`/post/common`);
-    return response.data;
+interface StockItem {
+  _id: {
+    $oid: string;
   };
+  title: string;
+  content: string;
+  date: {
+    $date: string;
+  }
+  like: number;
+}
+
+export const StockTable: React.FC = () => {
+  const [data, setData] = useState<StockItem[]>([]);
 
   useEffect(() => {
+    const getStockQuestion = async () => {
+      try {
+        const response = await instance.get<StockItem[]>("/post/common");
+        setData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
     getStockQuestion();
   }, []);
 
@@ -24,19 +41,23 @@ export const StockTable = () => {
         <S.ConfirmTitle style={{ width: "8%" }}>작성날짜</S.ConfirmTitle>
         <S.ConfirmTitle style={{ width: "8%" }}>좋아요</S.ConfirmTitle>
       </S.ConfirmListHeader>
-      {TABLE_LIST.map((value) => (
-        <S.ConfirmListItemContaienr>
+      {data.map((value) => (
+        <S.ConfirmListItemContaienr key={value._id.$oid}>
           <S.ConfirmTitle style={{ width: "90%", paddingLeft: "1%" }}>
             {value.title}
           </S.ConfirmTitle>
           <S.ConfirmTitle style={{ width: "8%" }}>
-            {value.author}
+            {value.content.length > 3 
+            ? `${value.content.slice(0, 3)}...`
+            : value.content}
           </S.ConfirmTitle>
           <S.ConfirmTitle style={{ width: "8%" }}>
-            {value.date}
+            {value.date.$date.length > 8 
+            ? `${value.date.$date.slice(0, 8)}...`
+            : value.date.$date}
           </S.ConfirmTitle>
           <S.ConfirmTitle style={{ width: "8%" }}>
-            {value.likes}
+            {value.like}
           </S.ConfirmTitle>
         </S.ConfirmListItemContaienr>
       ))}
