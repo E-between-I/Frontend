@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import { ImmovablesTable } from "./ImmovablesTable";
 import Banner from "../../assets/banner.svg";
 import Pagination from "../common/Pagination";
 import * as S from "./style";
+import QuestionButtonComponent from "../common/Button/question";
 
 const Immovables = () => {
   const totalPosts = 100;
@@ -24,6 +26,9 @@ const Immovables = () => {
           limit={limit}
           setPage={handlePageChange}
         />
+        <Link to="/write/immovables">
+          <QuestionButtonComponent />
+        </Link>
       </S.StockWrapper>
     </S.StockContainer>
   );

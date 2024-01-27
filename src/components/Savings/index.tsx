@@ -2,6 +2,8 @@ import { SavingsTable } from "./SavingsTables";
 import Banner from "../../assets/banner.svg";
 import Pagination from "../common/Pagination";
 import * as S from "./style";
+import { Link } from "react-router-dom";
+import QuestionButtonComponent from "../common/Button/question";
 
 const Savings = () => {
   const totalPosts = 100;
@@ -24,6 +26,9 @@ const Savings = () => {
           limit={limit}
           setPage={handlePageChange}
         />
+        <Link to="/write/savings">
+          <QuestionButtonComponent />
+        </Link>
       </S.StockWrapper>
     </S.StockContainer>
   );

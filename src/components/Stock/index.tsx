@@ -2,6 +2,8 @@ import { StockTable } from "./StockTable";
 import Banner from "../../assets/banner.svg";
 import Pagination from "../common/Pagination";
 import * as S from "./style";
+import { Link } from "react-router-dom";
+import QuestionButtonComponent from "../common/Button/question";
 
 const Stock = () => {
   const totalPosts = 100;
@@ -24,6 +26,9 @@ const Stock = () => {
           limit={limit}
           setPage={handlePageChange}
         />
+        <Link to="/write/stock">
+          <QuestionButtonComponent />
+        </Link>
       </S.StockWrapper>
     </S.StockContainer>
   );
