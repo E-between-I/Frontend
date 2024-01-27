@@ -51,7 +51,7 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  padding: 0 150px;
+  padding: 0 15vw;
   align-items: center;
   background: ${({ theme }) => theme.colors.WHITE};
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray200};
