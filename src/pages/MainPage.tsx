@@ -1,5 +1,13 @@
+import { PopularSection } from "../components/Main/Popular/PopularSection";
+import Title from "../components/Main/Title";
+
 const MainPage = () => {
-  return <div>mainpage</div>;
+  return (
+    <>
+      <Title />
+      <PopularSection />
+    </>
+  );
 };
 
 export default MainPage;

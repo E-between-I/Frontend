@@ -1,5 +1,5 @@
 import { QueryClientProvider, QueryClient } from "react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import MainPage from "./pages/MainPage";
 import Stock from "./components/Stock";
@@ -7,6 +7,8 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./style/GlobalStyle";
 import { theme } from "./style/Theme";
+import Header from "./components/Main/Header";
+import MainRouter from "./router";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +24,8 @@ function App() {
               <Route path="/" element={<MainPage />} />
               <Route path="/com" element={<Stock />} />
             </Routes>
+            <Header />
+            <MainRouter />
           </BrowserRouter>
         </RecoilRoot>
       </ThemeProvider>
