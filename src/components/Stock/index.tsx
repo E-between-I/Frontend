@@ -16,7 +16,7 @@ const Stock = () => {
         <S.StockContainer>
             <S.StockWrapper>
             <img src={Banner} alt="error" />
-            <S.Title>적금/예금</S.Title>
+            <S.Title>주식</S.Title>
             <StockTable />
             <Pagination 
               page={initialPage} 

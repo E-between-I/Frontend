@@ -10,7 +10,7 @@ const MainRouter = () => {
   return (
     <Routes>
       <Route element={<MainPage />} path="/" />
-      <Route element={<StockPage />} path="/com" />
+      <Route element={<StockPage />} path="/stock" />
       <Route element={<WritePage />} path="/write/:type" />
       <Route element={<LoginPage />} path="/login" />
       <Route element={<AnotherLoginPage />} path="/another_login" />

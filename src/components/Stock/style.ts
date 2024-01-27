@@ -18,10 +18,14 @@ export const StockWrapper = styled.div`
         width: 100%;
         height: auto;
     }
+
+    background-color: #fff;
 `;
 
 export const Title = styled.div`
     color: #000;
     font-family: Pretendard;
     font-size: 36px;
+    margin-top: 2%;
+    margin-bottom: 2%;
 `
