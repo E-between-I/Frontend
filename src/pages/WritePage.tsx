@@ -14,8 +14,6 @@ import {
   StyledWritePageTitleSection,
   StyledWritePageTitleText,
 } from "../style/Write/WritePage.style";
-import { usePostQuestion } from "../utils/api/Axios";
-import { useForm } from "../hooks/useForm";
 import axios from "axios";
 
 export const WritePage = () => {
