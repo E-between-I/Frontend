@@ -26,7 +26,7 @@ const Savings = () => {
           limit={limit}
           setPage={handlePageChange}
         />
-        <Link to="/write/savings">
+        <Link to="/write/deposit">
           <QuestionButtonComponent />
         </Link>
       </S.StockWrapper>

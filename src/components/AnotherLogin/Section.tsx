@@ -4,7 +4,7 @@ import { SIGN_FORM } from "../../constants/Login";
 import Input from "../common/Input";
 
 const Section = () => {
-  const { form: signForm, handleChange: signFormChange } = useForm({
+  const { handleChange: signFormChange } = useForm({
     email: "",
     password: "",
   });

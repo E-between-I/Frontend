@@ -31,9 +31,9 @@ export const PopularListItems = ({ path }: PopularListItemsProps) => {
     const fetchData = async () => {
       const response = await axios.get(
         `${baseUrl}ranking/${path === "stock" ? "stock" : ""}${
-          path === "immovables" ? "deposit" : ""
-        }${path === "savings" ? "realty" : ""}${
-          path === "economy" ? "common" : ""
+          path === "realty" ? "deposit" : ""
+        }${path === "deposit" ? "realty" : ""}${
+          path === "commit" ? "common" : ""
         }`,
         {
           headers: { Accept: "application/json" },

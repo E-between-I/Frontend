@@ -146,9 +146,8 @@ export const usePostQuestion = (request: PostRealtytDto) => {
     async () =>
       instance.post(`/post/${request.category}`, request.request_body),
     {
-      onSuccess: () => {
+      onSuccess: () => {  
         toast.success("질문 작성이 완료되었습니다.");
-        console.log("sfsfd");
         navigate(`/${request.category}`);
       },
       onError: (err: AxiosError<AxiosError>) => {
@@ -163,6 +162,7 @@ export const usePostQuestion = (request: PostRealtytDto) => {
         } else {
           toast.error("네트워크 연결 상태를 확인해주세요.");
         }
+        console.log("request url: ", request.category);
       },
     }
   );

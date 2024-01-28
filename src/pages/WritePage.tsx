@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   StyledWritePage,
@@ -25,19 +25,20 @@ export const WritePage = () => {
     if (
       !(
         type === "stock" ||
-        type === "immovables" ||
-        type === "savings" ||
-        type === "economy"
+        type === "realty" ||
+        type === "deposit" ||
+        type === "common"
       )
     ) {
+      console.error("Type error", type);
       navigate("/");
     }
-  });
+  }, [type, navigate]);
 
   const { form: questionForm, handleChange: questionFormChange } = useForm({
     title: "",
     content: "",
-    author: "sdfs",
+    author: "test",
   });
 
   console.log({
@@ -50,8 +51,13 @@ export const WritePage = () => {
     category: type!,
   });
 
-  const onSubmitClickHandle = () => {
-    mutate();
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      mutate();
+    } catch (error) {
+      console.error("Mutation error", error); 
+  }
   };
 
   return (
@@ -62,16 +68,16 @@ export const WritePage = () => {
             <StyledWritePageTitle>
               <StyledWritePageTitleHighlight>
                 {type === "stock" ? "주식" : ""}
-                {type === "immovables" ? "부동산" : ""}
-                {type === "savings" ? "예금/적금" : ""}
-                {type === "economy" ? "경제" : ""}
+                {type === "realty" ? "부동산" : ""}
+                {type === "deposit" ? "예금/적금" : ""}
+                {type === "common" ? "경제" : ""}
               </StyledWritePageTitleHighlight>
               <StyledWritePageTitleText>
                 에 대한 질문을 해보세요!
               </StyledWritePageTitleText>
             </StyledWritePageTitle>
           </StyledWritePageTitleSection>
-          <StyledWritePageForm>
+          <StyledWritePageForm onSubmit={handleSubmit}>
             <StyledWritePageInputs>
               <StyledWritePageInputText>제목</StyledWritePageInputText>
               <StyledWritePageTitleInput
@@ -88,7 +94,7 @@ export const WritePage = () => {
                 onChange={questionFormChange}
               />
             </StyledWritePageInputs>
-            <StyledWritePageButton onClick={onSubmitClickHandle}>
+            <StyledWritePageButton>
               제출하기
             </StyledWritePageButton>
           </StyledWritePageForm>

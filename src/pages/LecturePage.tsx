@@ -85,25 +85,25 @@ export const LecturePage = () => {
               주식 강의
             </StyledLectureTab>
             <StyledLectureTab
-              $isSelected={type === "economy"}
+              $isSelected={type === "common"}
               onClick={() => {
-                handleTabChange("economy");
+                handleTabChange("common");
               }}
             >
               경제상식 강의
             </StyledLectureTab>
             <StyledLectureTab
-              $isSelected={type === "immovables"}
+              $isSelected={type === "realty"}
               onClick={() => {
-                handleTabChange("immovables");
+                handleTabChange("realty");
               }}
             >
               부동산 강의
             </StyledLectureTab>
             <StyledLectureTab
-              $isSelected={type === "savings"}
+              $isSelected={type === "deposit"}
               onClick={() => {
-                handleTabChange("savings");
+                handleTabChange("deposit");
               }}
             >
               적금/예금 강의
@@ -115,13 +115,13 @@ export const LecturePage = () => {
         >
           <Lecture data={stockData} />
         </StyledLecturePageContent>
-        <StyledLecturePageContent $isSelected={type === "economy"}>
+        <StyledLecturePageContent $isSelected={type === "common"}>
           <Lecture data={stockData} />
         </StyledLecturePageContent>
-        <StyledLecturePageContent $isSelected={type === "immovables"}>
+        <StyledLecturePageContent $isSelected={type === "realty"}>
           <Lecture data={stockData} />
         </StyledLecturePageContent>
-        <StyledLecturePageContent $isSelected={type === "savings"}>
+        <StyledLecturePageContent $isSelected={type === "deposit"}>
           <Lecture data={stockData} />
         </StyledLecturePageContent>
       </StyledLecturePage>
