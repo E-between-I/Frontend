@@ -10,15 +10,15 @@ export const HEADER_LIST: HEADER_LIST_TYPE[] = [
   },
   {
     title: "부동산",
-    route: "/immovables",
+    route: "/realty",
   },
   {
     title: "적금/예금",
-    route: "/savings",
+    route: "/devosit",
   },
   {
     title: "경제",
-    route: "/economy",
+    route: "/common",
   },
   {
     title: "강의",

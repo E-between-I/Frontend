@@ -1,13 +1,11 @@
 import styled from "styled-components";
-import { useForm } from "../../hooks/useForm";
+import { useLogin } from "../../hooks/useLogin";
 import { SIGN_FORM } from "../../constants/Login";
 import Input from "../common/Input";
 
 const Section = () => {
-  const { handleChange: signFormChange } = useForm({
-    email: "",
-    password: "",
-  });
+  const { handleChange: signFormChange,submitLogin } = useLogin();
+
 
   return (
     <div>
@@ -23,7 +21,7 @@ const Section = () => {
           />
         ))}
       </Inputs>
-      <Button>확인</Button>
+      <Button onClick={submitLogin}>확인</Button>
     </div>
   );
 };
