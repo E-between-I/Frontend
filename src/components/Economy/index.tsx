@@ -4,7 +4,6 @@ import Pagination from "../common/Pagination";
 import * as S from "../Stock/style";
 import { Link } from "react-router-dom";
 import QuestionButtonComponent from "../common/Button/question";
-import { motion } from "framer-motion";
 
 const Economy = () => {
   const totalPosts = 100;
@@ -18,31 +17,18 @@ const Economy = () => {
   return (
     <S.StockContainer>
       <S.StockWrapper>
-        <motion.img
-          src={Banner}
-          alt="error"
-          style={{ marginBottom: "15px" }}
-          initial={{ opacity: 0, y: "20%" }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ease: "easeInOut", duration: 0.8 }}
+        <img src={Banner} alt="error" style={{ marginBottom: "15px" }} />
+        <S.Title>경제</S.Title>
+        <EconomyTable />
+        <Pagination
+          page={initialPage}
+          totalPosts={totalPosts}
+          limit={limit}
+          setPage={handlePageChange}
         />
-        <motion.div
-          initial={{ opacity: 0, y: "10%" }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ease: "easeInOut", duration: 0.4, delay: 0.4 }}
-        >
-          <S.Title>경제</S.Title>
-          <EconomyTable />
-          <Pagination
-            page={initialPage}
-            totalPosts={totalPosts}
-            limit={limit}
-            setPage={handlePageChange}
-          />
-          <Link to="/write/economy">
-            <QuestionButtonComponent />
-          </Link>
-        </motion.div>
+        <Link to="/write/economy">
+          <QuestionButtonComponent />
+        </Link>
       </S.StockWrapper>
     </S.StockContainer>
   );

@@ -2,13 +2,11 @@ import styled from "styled-components";
 import { MainTitle } from "../../../assets";
 
 const Title = () => {
-  return <Img />;
+  return <Img src={MainTitle} alt="error" />;
 };
 
-const Img = styled.div`
-  background: url(${MainTitle});
+const Img = styled.img`
   width: 100%;
-  height: calc(100vh - 57px);
 `;
 
 export default Title;

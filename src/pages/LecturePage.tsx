@@ -10,17 +10,6 @@ import {
 import { useEffect } from "react";
 import { Lecture } from "../components/Lecture/Lecture";
 
-const ContainerVariants = {
-  close: { opacity: 0 },
-  open: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
 export const LecturePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -123,34 +112,16 @@ export const LecturePage = () => {
         </StyledLecturePageContainer>
         <StyledLecturePageContent
           $isSelected={type === null || type === "stock"}
-          variants={ContainerVariants}
-          initial="close"
-          animate="open"
         >
           <Lecture data={stockData} />
         </StyledLecturePageContent>
-        <StyledLecturePageContent
-          $isSelected={type === "common"}
-          variants={ContainerVariants}
-          initial="close"
-          animate="open"
-        >
+        <StyledLecturePageContent $isSelected={type === "common"}>
           <Lecture data={stockData} />
         </StyledLecturePageContent>
-        <StyledLecturePageContent
-          $isSelected={type === "realty"}
-          variants={ContainerVariants}
-          initial="close"
-          animate="open"
-        >
+        <StyledLecturePageContent $isSelected={type === "realty"}>
           <Lecture data={stockData} />
         </StyledLecturePageContent>
-        <StyledLecturePageContent
-          $isSelected={type === "deposit"}
-          variants={ContainerVariants}
-          initial="close"
-          animate="open"
-        >
+        <StyledLecturePageContent $isSelected={type === "deposit"}>
           <Lecture data={stockData} />
         </StyledLecturePageContent>
       </StyledLecturePage>

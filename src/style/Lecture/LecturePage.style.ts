@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 export const StyledLecturePage = styled.div`
   height: calc(100vh - 57px);
@@ -39,9 +38,7 @@ export const StyledLectureTab = styled.p<{ $isSelected: boolean }>`
   }
 `;
 
-export const StyledLecturePageContent = styled(motion.div)<{
-  $isSelected: boolean;
-}>`
+export const StyledLecturePageContent = styled.div<{ $isSelected: boolean }>`
   display: ${({ $isSelected }) => ($isSelected ? "flex" : "none")};
   flex-wrap: wrap;
   max-width: 1400px;

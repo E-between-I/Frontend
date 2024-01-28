@@ -14,12 +14,7 @@ interface PopularListProps {
 export const PopularList = ({ title, path }: PopularListProps) => {
   return (
     <>
-      <StyledPopularList
-        initial={{ opacity: 0, y: "10%" }}
-        // animate={{ opacity: 1, y: 0 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ ease: "easeInOut", duration: 0.5 }}
-      >
+      <StyledPopularList>
         <StyledPopularListTitleSection>
           <StyledPopularListTitle>{title}</StyledPopularListTitle>
           <StyledPopularListMore to={`/${path}`}>더보기</StyledPopularListMore>

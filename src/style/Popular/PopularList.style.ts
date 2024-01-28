@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
-export const StyledPopularList = styled(motion.div)`
+export const StyledPopularList = styled.div`
   width: 600px;
   display: flex;
   flex-flow: column;

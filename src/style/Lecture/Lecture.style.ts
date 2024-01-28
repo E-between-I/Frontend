@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
-export const StyledLecture = styled(motion.div)`
+export const StyledLecture = styled.div`
   width: 300px;
 `;
 
