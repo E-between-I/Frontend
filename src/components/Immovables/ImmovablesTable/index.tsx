@@ -13,6 +13,7 @@ interface StockItem {
     $date: string;
   };
   like: number;
+  author: string;
 }
 
 export const ImmovablesTable: React.FC = () => {
@@ -20,7 +21,7 @@ export const ImmovablesTable: React.FC = () => {
   const navigate = useNavigate();
 
   const handleClick = (path: string) => {
-    navigate(`/stock/detail/${path}`);
+    navigate(`/immovables/detail/${path}`);
   };
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export const ImmovablesTable: React.FC = () => {
         </S.ConfirmTitle>
         <S.ConfirmTitle style={{ width: "55px" }}>좋아요</S.ConfirmTitle>
       </S.ConfirmListHeader>
-      {data.map((value) => (
+      {data.map((value: StockItem) => (
         <S.ConfirmListItemContaienr
           key={value._id.$oid}
           onClick={() => {
@@ -73,9 +74,9 @@ export const ImmovablesTable: React.FC = () => {
           <S.ConfirmTitle
             style={{ width: "90px", textAlign: "center", color: "#000" }}
           >
-            {value.content.length > 3
+            {value.author.length > 3
               ? `${value.content.slice(0, 3)}...`
-              : value.content}
+              : value.author}
           </S.ConfirmTitle>
           <S.ConfirmTitle style={{ color: "#000" }}>
             {value.date.$date.length > 8
