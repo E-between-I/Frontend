@@ -26,7 +26,7 @@ const Immovables = () => {
           limit={limit}
           setPage={handlePageChange}
         />
-        <Link to="/write/immovables">
+        <Link to="/write/realty">
           <QuestionButtonComponent />
         </Link>
       </S.StockWrapper>

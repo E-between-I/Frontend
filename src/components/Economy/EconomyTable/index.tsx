@@ -20,7 +20,7 @@ export const EconomyTable: React.FC = () => {
   useEffect(() => {
     const getStockQuestion = async () => {
       try {
-        const response = await instance.get<StockItem[]>("/post/realty");
+        const response = await instance.get<StockItem[]>("/post/common");
         setData(response.data);
         console.log(response.data);
       } catch (error) {
