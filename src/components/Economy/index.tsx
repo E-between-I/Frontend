@@ -26,7 +26,7 @@ const Economy = () => {
           limit={limit}
           setPage={handlePageChange}
         />
-        <Link to="/write/common">
+        <Link to="/write/economy">
           <QuestionButtonComponent />
         </Link>
       </S.StockWrapper>
