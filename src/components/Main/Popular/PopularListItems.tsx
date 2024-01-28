@@ -32,7 +32,7 @@ export const PopularListItems = ({ path }: PopularListItemsProps) => {
       const response = await axios.get(
         `${baseUrl}ranking/${path === "stock" ? "stock" : ""}${
           path === "immovables" ? "realty" : ""
-        }${path === "savings" ? "devosit" : ""}${
+        }${path === "savings" ? "deposit" : ""}${
           path === "economy" ? "common" : ""
         }`,
         {
