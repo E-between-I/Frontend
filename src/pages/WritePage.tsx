@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   StyledWritePage,
@@ -14,20 +14,21 @@ import {
   StyledWritePageTitleSection,
   StyledWritePageTitleText,
 } from "../style/Write/WritePage.style";
-import { useForm } from "../hooks/useForm";
-import { usePostQuestion } from "../utils/api/Axios";
+import axios from "axios";
 
 export const WritePage = () => {
   const { type } = useParams<{ type: string }>();
   const navigate = useNavigate();
-
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
   useEffect(() => {
     if (
       !(
         type === "stock" ||
-        type === "realty" ||
-        type === "devosit" ||
-        type === "common"
+        type === "immovables" ||
+        type === "savings" ||
+        type === "economy"
       )
     ) {
       console.error("Type error", type);
@@ -35,29 +36,21 @@ export const WritePage = () => {
     }
   }, [type, navigate]);
 
-  const { form: questionForm, handleChange: questionFormChange } = useForm({
-    title: "",
-    content: "",
-    author: "test",
-  });
-
-  console.log({
-    request_body: questionForm,
-    category: type!,
-  });
-
-  const { mutate } = usePostQuestion({
-    request_body: questionForm,
-    category: type!,
-  });
-
-  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      mutate();
-    } catch (error) {
-      console.error("Mutation error", error); 
-  }
+    await axios.post(
+      `${baseUrl}post/${type === "stock" ? "stock" : ""}${
+        type === "immovables" ? "realty" : ""
+      }${type === "savings" ? "deposit" : ""}${
+        type === "economy" ? "common" : ""
+      }`,
+      {
+        author: "나다",
+        title: title,
+        content: text,
+      }
+    );
+    navigate(`/${type}`);
   };
 
   return (
@@ -68,9 +61,9 @@ export const WritePage = () => {
             <StyledWritePageTitle>
               <StyledWritePageTitleHighlight>
                 {type === "stock" ? "주식" : ""}
-                {type === "realty" ? "부동산" : ""}
-                {type === "devosit" ? "예금/적금" : ""}
-                {type === "common" ? "경제" : ""}
+                {type === "immovables" ? "부동산" : ""}
+                {type === "savings" ? "예금/적금" : ""}
+                {type === "economy" ? "경제" : ""}
               </StyledWritePageTitleHighlight>
               <StyledWritePageTitleText>
                 에 대한 질문을 해보세요!
@@ -83,7 +76,10 @@ export const WritePage = () => {
               <StyledWritePageTitleInput
                 placeholder="질문에 대한 제목을 적어주세요!"
                 name="title"
-                onChange={questionFormChange}
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
               />
             </StyledWritePageInputs>
             <StyledWritePageInputs>
@@ -91,12 +87,13 @@ export const WritePage = () => {
               <StyledWritePageTextArea
                 placeholder="질문에 대한 본문을 적어주세요!"
                 name="content"
-                onChange={questionFormChange}
+                value={text}
+                onChange={(e) => {
+                  setText(e.target.value);
+                }}
               />
             </StyledWritePageInputs>
-            <StyledWritePageButton>
-              제출하기
-            </StyledWritePageButton>
+            <StyledWritePageButton>제출하기</StyledWritePageButton>
           </StyledWritePageForm>
         </StyledWritePageContainer>
       </StyledWritePage>

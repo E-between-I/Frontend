@@ -47,7 +47,7 @@ export const DetailPage = () => {
       const response = await axios.get(
         `${baseUrl}post/${type === "stock" ? "stock" : ""}${
           type === "immovables" ? "realty" : ""
-        }${type === "savings" ? "devosit" : ""}${
+        }${type === "savings" ? "deposit" : ""}${
           type === "economy" ? "common" : ""
         }/${id}`,
         {
