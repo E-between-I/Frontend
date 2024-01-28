@@ -36,6 +36,13 @@ export const StyledContent = styled.div`
   flex-flow: column;
 `;
 
+export const StyledTitle = styled.p`
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 10px 0 35px 0;
+`;
+
 export const StyledText = styled.p`
   font-size: 22px;
 `;

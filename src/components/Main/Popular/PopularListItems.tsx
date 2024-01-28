@@ -31,9 +31,9 @@ export const PopularListItems = ({ path }: PopularListItemsProps) => {
     const fetchData = async () => {
       const response = await axios.get(
         `${baseUrl}ranking/${path === "stock" ? "stock" : ""}${
-          path === "realty" ? "deposit" : ""
-        }${path === "deposit" ? "realty" : ""}${
-          path === "commit" ? "common" : ""
+          path === "immovables" ? "realty" : ""
+        }${path === "savings" ? "deposit" : ""}${
+          path === "economy" ? "common" : ""
         }`,
         {
           headers: { Accept: "application/json" },
@@ -80,6 +80,8 @@ export const PopularListItems = ({ path }: PopularListItemsProps) => {
             writer={element.author}
             date={element.date.$date}
             like={element.like}
+            id={element._id.$oid}
+            path={path}
           />
         ))}
       </StyledPopularListItems>

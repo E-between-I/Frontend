@@ -21,9 +21,9 @@ const MainRouter = () => {
       <Route element={<CreateNickNamePage />} path="/create_nickname" />
       <Route element={<LecturePage />} path="/lecture" />
       <Route element={<StockPage />} path="/stock" />
-      <Route element={<ImmovablesPage />} path="/realty" />
-      <Route element={<SavingsPage />} path="/deposit" />
-      <Route element={<EconomyPage />} path="/common" />
+      <Route element={<ImmovablesPage />} path="/immovables" />
+      <Route element={<SavingsPage />} path="/savings" />
+      <Route element={<EconomyPage />} path="/economy" />
       <Route element={<DetailPage />} path="/:type/detail/:id" />
     </Routes>
   );

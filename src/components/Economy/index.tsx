@@ -1,7 +1,7 @@
 import { EconomyTable } from "./EconomyTable";
 import Banner from "../../assets/banner.svg";
 import Pagination from "../common/Pagination";
-import * as S from "./style";
+import * as S from "../Stock/style";
 import { Link } from "react-router-dom";
 import QuestionButtonComponent from "../common/Button/question";
 
@@ -17,7 +17,7 @@ const Economy = () => {
   return (
     <S.StockContainer>
       <S.StockWrapper>
-        <img src={Banner} alt="error" />
+        <img src={Banner} alt="error" style={{ marginBottom: "15px" }} />
         <S.Title>경제</S.Title>
         <EconomyTable />
         <Pagination
