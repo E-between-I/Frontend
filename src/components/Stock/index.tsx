@@ -17,7 +17,7 @@ const Stock = () => {
   return (
     <S.StockContainer>
       <S.StockWrapper>
-        <img src={Banner} alt="error" />
+        <img src={Banner} alt="error" style={{ marginBottom: "15px" }} />
         <S.Title>주식</S.Title>
         <StockTable />
         <Pagination

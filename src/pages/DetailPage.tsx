@@ -13,6 +13,7 @@ import {
   StyledProfile,
   StyledProfileImg,
   StyledText,
+  StyledTitle,
   StyledWriter,
 } from "../style/Detail/DetailPage.style";
 import { useEffect, useState } from "react";
@@ -45,8 +46,8 @@ export const DetailPage = () => {
     const fetchData = async () => {
       const response = await axios.get(
         `${baseUrl}post/${type === "stock" ? "stock" : ""}${
-          type === "immovables" ? "deposit" : ""
-        }${type === "savings" ? "realty" : ""}${
+          type === "immovables" ? "realty" : ""
+        }${type === "savings" ? "deposit" : ""}${
           type === "economy" ? "common" : ""
         }/${id}`,
         {
@@ -54,7 +55,7 @@ export const DetailPage = () => {
         }
       );
 
-      console.log(response.data);
+      console.log(response.data, type);
 
       setData(response.data);
     };
@@ -70,6 +71,7 @@ export const DetailPage = () => {
             <StyledWriter>{data?.author}</StyledWriter>
           </StyledProfile>
           <StyledContent>
+            <StyledTitle>{data?.title}</StyledTitle>
             <StyledText>{data?.content}</StyledText>
             <StyledLikeSection>
               <StyledLikeContainer>

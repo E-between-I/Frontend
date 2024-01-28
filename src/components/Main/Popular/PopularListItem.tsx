@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   StyledPopularListItem,
   StyledPopularListItemText,
@@ -8,6 +9,8 @@ interface PopularListItemProps {
   writer: string;
   date: string;
   like: number;
+  id: string;
+  path: string;
 }
 
 export const PopularListItem = ({
@@ -15,10 +18,18 @@ export const PopularListItem = ({
   writer,
   date,
   like,
+  id,
+  path,
 }: PopularListItemProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/${path}/detail/${id}`);
+  };
+
   return (
     <>
-      <StyledPopularListItem>
+      <StyledPopularListItem onClick={handleClick}>
         <StyledPopularListItemText
           style={{
             flex: 1,

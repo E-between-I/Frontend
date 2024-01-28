@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ImmovablesTable } from "./ImmovablesTable";
 import Banner from "../../assets/banner.svg";
 import Pagination from "../common/Pagination";
-import * as S from "./style";
+import * as S from "../Stock/style";
 import QuestionButtonComponent from "../common/Button/question";
 
 const Immovables = () => {
@@ -17,7 +17,7 @@ const Immovables = () => {
   return (
     <S.StockContainer>
       <S.StockWrapper>
-        <img src={Banner} alt="error" />
+        <img src={Banner} alt="error" style={{ marginBottom: "15px" }} />
         <S.Title>부동산</S.Title>
         <ImmovablesTable />
         <Pagination
