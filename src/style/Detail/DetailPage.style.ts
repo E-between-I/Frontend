@@ -34,6 +34,7 @@ export const StyledWriter = styled.p`
 export const StyledContent = styled.div`
   display: flex;
   flex-flow: column;
+  text-align: center;
 `;
 
 export const StyledTitle = styled.p`
@@ -57,8 +58,8 @@ export const StyledLikeSection = styled.section`
 `;
 
 export const StyledLikeContainer = styled.div`
-  width: 75px;
-  height: 75px;
+  width: 55px;
+  height: 55px;
   border: 1px solid #ccc;
   border-radius: 50%;
   display: flex;
@@ -69,8 +70,8 @@ export const StyledLikeContainer = styled.div`
 `;
 
 export const StyledLikeImg = styled.img`
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 `;
 
 export const StyledLikeCount = styled.p`
@@ -85,9 +86,11 @@ export const StyledCommnetSection = styled.section`
 `;
 
 export const StyledCommnetTitle = styled.p`
-  font-size: 36px;
+  font-size: 30x;
   font-weight: 600;
   padding-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
   border-bottom: 2px solid #ccc;
 `;
 
