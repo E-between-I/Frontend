@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledPopularSection = styled.section`
   width: 100%;
@@ -23,7 +24,7 @@ export const StyledPopularContainer = styled.div<{ $reverse?: boolean }>`
     flex-direction: ${({ $reverse }) => ($reverse ? "row-reverse" : "")};
   }
 `;
-export const StyledPopularSectionSlogan = styled.div`
+export const StyledPopularSectionSlogan = styled(motion.div)`
   display: flex;
   flex-flow: column;
   justify-content: center;
