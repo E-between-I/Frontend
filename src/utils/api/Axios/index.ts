@@ -123,7 +123,9 @@ interface postQuestionQequestBody {
 
 export const usePostQuestion = (request: PostRealtytDto) => {
   const navigate = useNavigate();
-
+  if(request.category === "devosit"){
+    request.category = "deposit"
+  }
   return useMutation(
     async () =>
       instance.post(`/post/${request.category}`, request.request_body),
@@ -164,13 +166,13 @@ export const usePostDeposit = (postData: PostDepositDto) => {
   return useMutation(
     async () =>
       axios.post<void>(
-        `${process.env.VITE_BASE_URL}${path}/post/deposit`,
+        `${process.env.VITE_BASE_URL}${path}/post/devosit`,
         postData
       ),
     {
       onSuccess: () => {
         toast.success("적금/예금 포스트 작성이 완료되었습니다.");
-        navigate("/deposit");
+        navigate("/devosit");
       },
       onError: (err: AxiosError<AxiosError>) => {
         if (err.response) {

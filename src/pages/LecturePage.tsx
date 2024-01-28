@@ -101,9 +101,9 @@ export const LecturePage = () => {
               부동산 강의
             </StyledLectureTab>
             <StyledLectureTab
-              $isSelected={type === "deposit"}
+              $isSelected={type === "devosit"}
               onClick={() => {
-                handleTabChange("deposit");
+                handleTabChange("devosit");
               }}
             >
               적금/예금 강의
