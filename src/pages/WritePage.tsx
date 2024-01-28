@@ -14,10 +14,13 @@ import {
   StyledWritePageTitleSection,
   StyledWritePageTitleText,
 } from "../style/Write/WritePage.style";
+import { useForm } from "../hooks/useForm";
+import { usePostQuestion } from "../utils/api/Axios";
 
 export const WritePage = () => {
   const { type } = useParams<{ type: string }>();
   const navigate = useNavigate();
+
   useEffect(() => {
     if (
       !(
@@ -30,6 +33,27 @@ export const WritePage = () => {
       navigate("/");
     }
   });
+
+  const { form: questionForm, handleChange: questionFormChange } = useForm({
+    title: "",
+    content: "",
+    author: "sdfs",
+  });
+
+  console.log({
+    request_body: questionForm,
+    category: type!,
+  });
+
+  const { mutate } = usePostQuestion({
+    request_body: questionForm,
+    category: type!,
+  });
+
+  const onSubmitClickHandle = () => {
+    mutate();
+  };
+
   return (
     <>
       <StyledWritePage>
@@ -50,13 +74,23 @@ export const WritePage = () => {
           <StyledWritePageForm>
             <StyledWritePageInputs>
               <StyledWritePageInputText>제목</StyledWritePageInputText>
-              <StyledWritePageTitleInput placeholder="질문에 대한 제목을 적어주세요!" />
+              <StyledWritePageTitleInput
+                placeholder="질문에 대한 제목을 적어주세요!"
+                name="title"
+                onChange={questionFormChange}
+              />
             </StyledWritePageInputs>
             <StyledWritePageInputs>
               <StyledWritePageInputText>본문</StyledWritePageInputText>
-              <StyledWritePageTextArea placeholder="질문에 대한 본문을 적어주세요!" />
+              <StyledWritePageTextArea
+                placeholder="질문에 대한 본문을 적어주세요!"
+                name="content"
+                onChange={questionFormChange}
+              />
             </StyledWritePageInputs>
-            <StyledWritePageButton>제출하기</StyledWritePageButton>
+            <StyledWritePageButton onClick={onSubmitClickHandle}>
+              제출하기
+            </StyledWritePageButton>
           </StyledWritePageForm>
         </StyledWritePageContainer>
       </StyledWritePage>
