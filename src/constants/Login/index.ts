@@ -5,6 +5,6 @@ interface SIGN_FORM_TYPE {
 }
 
 export const SIGN_FORM: SIGN_FORM_TYPE[] = [
-  { name: "e-mail", placeholder: "Email", type: "text" },
+  { name: "username", placeholder: "UserName", type: "text" },
   { name: "password", placeholder: "Password", type: "password" },
 ];

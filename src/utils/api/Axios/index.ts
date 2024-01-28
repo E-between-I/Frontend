@@ -3,52 +3,34 @@ import { useMutation } from "react-query";
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
 import path from "path";
-import { setToken } from "../../functions/TokenManager";
 import { instance } from "../../../constraints/axiosIntersepter/userIntersepter";
 
 export interface userLoginRequestDto {
-  email: string;
+  username: string;
   password: string;
-  accessToken: string;
-  refreshToken: string;
 }
 
-export const useUserLogin = (signData: userLoginRequestDto) => {
-  const navigate = useNavigate();
+export interface userLoginResonseDto {
+  accessToken:string;
+  refreshToken:string;
+}
 
+export const useUserLogin = () => {
   return useMutation(
-    async () =>
-      axios.post<userLoginRequestDto>(
-        `${process.env.VITE_BASE_URL}${path}/token`,
-        signData
-      ),
-    {
-      onSuccess: (e) => {
-        setToken(e.data.accessToken, e.data.refreshToken);
-        toast.success("로그인을 성공하였습니다.");
-        navigate("/main");
-      },
-      onError: (err: AxiosError<AxiosError>) => {
-        if (err.response) {
-          switch (err.response.status) {
-            case 400:
-              toast.error("정보를 다시 확인해주세요.");
-              break;
-            case 404:
-              toast.error("아이디와 비벌번호를 다시 확인해주세요.");
-              break;
-            default:
-              toast.error("개발자에게 문의해주세요.");
+     (signData:userLoginRequestDto) =>
+      axios.post<userLoginResonseDto>(
+        `${import.meta.env.VITE_BASE_URL}/token`,
+        signData,{
+          headers : {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
           }
-        } else toast.error("네트워크 연결 상태를 확인해주세요.");
-      },
-    }
+        }
+      )
   );
 };
 
 interface UserRegistrationDto {
   username: string;
-  email: string;
   password: string;
   nickname: string;
 }
