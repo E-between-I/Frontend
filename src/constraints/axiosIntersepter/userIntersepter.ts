@@ -27,12 +27,3 @@ instance.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-instance
-  .get("")
-  .then((response) => {
-    console.log(response.data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
