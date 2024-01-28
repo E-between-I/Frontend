@@ -18,11 +18,14 @@ interface fetchData {
   };
   author: string;
   like: number;
+  _id: {
+    $oid: string;
+  };
 }
 
 export const PopularListItems = ({ path }: PopularListItemsProps) => {
   const [data, setData] = useState([]);
-  const baseUrl = import.meta.env.VITE_PUBLIC_BASE_URL;
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const fetchData = async () => {
