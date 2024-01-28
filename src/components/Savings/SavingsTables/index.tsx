@@ -29,7 +29,6 @@ export const SavingsTable: React.FC = () => {
       try {
         const response = await instance.get<StockItem[]>("/post/deposit");
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

@@ -7,7 +7,6 @@ import {
   StyledLectureTabMenu,
   StyledLectureTitle,
 } from "../style/Lecture/LecturePage.style";
-import { useEffect } from "react";
 import { Lecture } from "../components/Lecture/Lecture";
 
 export const LecturePage = () => {
@@ -67,9 +66,7 @@ export const LecturePage = () => {
   const handleTabChange = (path: string) => {
     navigate(`/lecture?type=${path}`);
   };
-  useEffect(() => {
-    console.log(type);
-  });
+
   return (
     <>
       <StyledLecturePage>

@@ -29,7 +29,6 @@ export const EconomyTable: React.FC = () => {
       try {
         const response = await instance.get<StockItem[]>("/post/common");
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

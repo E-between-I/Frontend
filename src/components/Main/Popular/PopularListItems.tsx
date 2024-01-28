@@ -51,12 +51,9 @@ export const PopularListItems = ({ path }: PopularListItemsProps) => {
         new_responsive.date.$date = formattedDateString;
       });
 
-      console.log(response.data);
-
       setData(response.data);
     };
     fetchData();
-    console.log(data, path, baseUrl);
   }, []);
   return (
     <>

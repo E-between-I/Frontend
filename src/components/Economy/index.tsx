@@ -10,22 +10,13 @@ const Economy = () => {
   const limit = 10;
   const initialPage = 1;
 
-  const handlePageChange = (newPage: unknown) => {
-    console.log(`Page changed to ${newPage}`);
-  };
-
   return (
     <S.StockContainer>
       <S.StockWrapper>
         <img src={Banner} alt="error" style={{ marginBottom: "15px" }} />
         <S.Title>경제</S.Title>
         <EconomyTable />
-        <Pagination
-          page={initialPage}
-          totalPosts={totalPosts}
-          limit={limit}
-          setPage={handlePageChange}
-        />
+        <Pagination page={initialPage} totalPosts={totalPosts} limit={limit} />
         <Link to="/write/economy">
           <QuestionButtonComponent />
         </Link>

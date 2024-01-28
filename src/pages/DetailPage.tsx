@@ -16,57 +16,49 @@ import {
   StyledTitle,
   StyledWriter,
 } from "../style/Detail/DetailPage.style";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { Comment } from "../components/Commnet/Comment";
 import {
   StyledCommentButton,
   StyledCommentInput,
   StyledCommentInputSection,
 } from "../style/Comment/Comment.style";
-
-interface fetchData {
-  title: string;
-  date: {
-    $date: string;
-  };
-  author: string;
-  like: number;
-  _id: {
-    $oid: string;
-  };
-  content: string;
-}
+import { instance } from "../constraints/axiosIntersepter/userIntersepter";
+import { useEffect, useState } from "react";
 
 export const DetailPage = () => {
-  const [data, setData] = useState<fetchData>();
+  const [data, setData] = useState();
   const { type, id } = useParams<{ type: string; id: string }>();
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+
+  const getDetailQuestion = async () => {
+    await instance.get(`/post/${type}/${id}`).catch((res) => {
+      setData(res);
+      console.log("성공이다이쉐꺄");
+    });
+  };
+
+  // author: "바보";
+  // content: "제발탈출시켜줘";
+  // date: {
+  //   $date: "2024-01-28T04:39:03.961Z";
+  // }
+  // like: 100;
+  // title: "삼성전자 9만원에 몰려서 아직 못나온 썰 푼다";
+  // _id: {
+  //   $oid: "65b55bd75d64ca547ebdd54d";
+  // }
+
+  console.log(data);
+
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `${baseUrl}post/${type === "stock" ? "stock" : ""}${
-          type === "immovables" ? "realty" : ""
-        }${type === "savings" ? "deposit" : ""}${
-          type === "economy" ? "common" : ""
-        }/${id}`,
-        {
-          headers: { Accept: "application/json" },
-        }
-      );
-
-      console.log(response.data, type);
-
-      setData(response.data);
-    };
-    fetchData();
+    getDetailQuestion();
+    console.log(data);
   }, []);
 
   return (
     <>
       <StyledDetailPage>
         <StyledDetailPageContainer>
-          <StyledProfile>
+          {/* <StyledProfile>
             <StyledProfileImg src="https://freesvg.org/img/abstract-user-flat-4.png" />
             <StyledWriter>{data?.author}</StyledWriter>
           </StyledProfile>
@@ -90,7 +82,7 @@ export const DetailPage = () => {
                 <StyledCommentButton>올리기</StyledCommentButton>
               </StyledCommentInputSection>
             </StyledCommnetSection>
-          </StyledContent>
+          </StyledContent> */}
         </StyledDetailPageContainer>
       </StyledDetailPage>
     </>

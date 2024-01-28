@@ -42,7 +42,6 @@ export const ImmovablesTable: React.FC = () => {
           new_responsive.date.$date = formattedDateString;
         });
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
