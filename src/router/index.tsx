@@ -9,6 +9,7 @@ import StockPage from "../pages/StockPage";
 import ImmovablesPage from "../pages/Immovables";
 import SavingsPage from "../pages/SavingsPage";
 import EconomyPage from "../pages/EconomyPage";
+import { DetailPage } from "../pages/DetailPage";
 
 const MainRouter = () => {
   return (
@@ -23,6 +24,7 @@ const MainRouter = () => {
       <Route element={<ImmovablesPage />} path="/immovables" />
       <Route element={<SavingsPage />} path="/savings" />
       <Route element={<EconomyPage />} path="/economy" />
+      <Route element={<DetailPage />} path="/:type/detail/:id" />
     </Routes>
   );
 };
